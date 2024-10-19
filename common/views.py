@@ -27,6 +27,10 @@ def logout_page_view(request):
     return redirect('common:home')
 
 
+def detail_page_view(request):
+    return render(request, 'detail.html')
+
+
 class ContactPageView(CreateView):
     template_name = 'contact.html'
     form_class = ContactUsModelForm
