@@ -13,6 +13,14 @@ def contact_page_view(request):
     return render(request, 'contact.html')
 
 
+def login_page_view(request):
+    return render(request, 'user-login.html')
+
+
+def register_page_view(request):
+    return render(request, 'user-register.html')
+
+
 class ContactPageView(CreateView):
     template_name = 'contact.html'
     form_class = ContactUsModelForm
