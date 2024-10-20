@@ -3,10 +3,10 @@
 <!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <!--<![endif]-->
-<html lang="zxx">
+<html lang="en">
 
 
-<!-- blog-detail10:38-->
+<!-- product-cart07:06-->
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -17,14 +17,13 @@
     <meta name="description" content="Furnitica - Minimalist Furniture HTML Template">
     <meta name="author" content="tivatheme">
 
-
     <!-- Mobile Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
 
-    <!-- Vendor CSS -->
+    <!-- libs CSS -->
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="libs/nivo-slider/css/nivo-slider.css">
@@ -33,15 +32,16 @@
     <link rel="stylesheet" href="libs/font-material/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="libs/slider-range/css/jslider.css">
     <link rel="stylesheet" href="libs/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="libs/slick-slider/css/slick.css">
+    <link rel="stylesheet" href="libs/slick-slider/css/slick-theme.css">
 
     <!-- Template CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/reponsive.css">
 </head>
 
-<body id="blog-detail" class="blog">
+<body class="product-cart checkout-cart blog">
     <header>
-
         <!-- header left mobie -->
         <div class="header-mobile d-md-none">
             <div class="mobile hidden-md-up text-xs-center d-flex align-items-center justify-content-around">
@@ -114,7 +114,7 @@
                                         <tr>
                                             <td colspan="3" class="d-flex justify-content-center">
                                                 <div class="cart-button">
-                                                    <a href="cart.html" title="View Cart">View Cart</a>
+                                                    <a href="product-cart.html" title="View Cart">View Cart</a>
                                                     <a href="product-checkout.html" title="Checkout">Checkout</a>
                                                 </div>
                                             </td>
@@ -156,7 +156,7 @@
                                                 <a href="home2.html" title="Home Page 2">Home Page 2</a>
                                             </li>
                                             <li class="item">
-                                                <a href="home3.html" title="Home Page 3">Home Page 3</a>
+                                                <a href="home.html" title="Home Page 3">Home Page 3</a>
                                             </li>
                                             <li class="item">
                                                 <a href="home4.html" title="Home Page 4">Home Page 4</a>
@@ -167,12 +167,12 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="nav-link">
+                                <li>
                                     <a href="#" class="parent">Blog</a>
                                     <div class="dropdown-menu">
                                         <ul>
                                             <li class="item">
-                                                <a href="blog-list-sidebar-left.html" title="Blog List (Sidebar Left)">Blog List (Sidebar Left)</a>
+                                                <a href="blog-list.html" title="Blog List (Sidebar Left)">Blog List (Sidebar Left)</a>
                                             </li>
                                             <li class="item">
                                                 <a href="blog-list-sidebar-left2.html" title="Blog List (Sidebar Left) 2">Blog List (Sidebar Left) 2</a>
@@ -187,12 +187,12 @@
                                                 <a href="blog-grid-no-sidebar.html" title="Blog Grid (No Sidebar)">Blog Grid (No Sidebar)</a>
                                             </li>
                                             <li class="item">
-                                                <a href="detail.html" title="Blog Detail">Blog Detail</a>
+                                                <a href="blog-detail.html" title="Blog Detail">Blog Detail</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li>
+                                <li class="nav-link">
                                     <a href="#" class="parent">Page</a>
                                     <div class="dropdown-menu drop-tab">
                                         <ul>
@@ -204,7 +204,7 @@
                                                             <div class="menu-content">
                                                                 <ul class="col">
                                                                     <li>
-                                                                        <a href="product-grid-sidebar-left.html">Product Grid (Sidebar Left)</a>
+                                                                        <a href="product-list.html">Product Grid (Sidebar Left)</a>
                                                                     </li>
                                                                     <li>
                                                                         <a href="product-grid-sidebar-right.html">Product Grid (Sidebar Right)</a>
@@ -385,7 +385,7 @@
                                                 <tr>
                                                     <td colspan="3" class="d-flex justify-content-center">
                                                         <div class="cart-button">
-                                                            <a href="cart.html" title="View Cart">View Cart</a>
+                                                            <a href="product-cart.html" title="View Cart">View Cart</a>
                                                             <a href="product-checkout.html" title="Checkout">Checkout</a>
                                                         </div>
                                                     </td>
@@ -404,524 +404,278 @@
     </header>
 
     <!-- main content -->
-    <div class="main-content">
+    <div class="main-content" id="cart">
+        <!-- main -->
         <div id="wrapper-site">
-            <div id="content-wrapper">
-                <div id="main">
-                    <div class="page-home">
+            <!-- breadcrumb -->
+            <nav class="breadcrumb-bg">
+                <div class="container no-index">
+                    <div class="breadcrumb">
+                        <ol>
+                            <li>
+                                <a href="#">
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span>Shopping Cart</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 onecol">
+                        <section id="main">
+                            <div class="cart-grid row">
+                                <div class="col-md-9 col-xs-12 check-info">
+                                    <h1 class="title-page">Shopping Cart</h1>
+                                    <div class="cart-container">
+                                        <div class="cart-overview js-cart">
+                                            <ul class="cart-items">
+                                                <li class="cart-item">
+                                                    <div class="product-line-grid row justify-content-between">
+                                                        <!--  product left content: image-->
+                                                        <div class="product-line-grid-left col-md-2">
+                                                            <span class="product-image media-middle">
+                                                                <a href="product-detail.html">
+                                                                    <img class="img-fluid" src="img/product/3.jpg" alt="Organic Strawberry Fruits">
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                        <div class="product-line-grid-body col-md-6">
+                                                            <div class="product-line-info">
+                                                                <a class="label" href="product-detail.html" data-id_customization="0">Organic Strawberry Fruits</a>
+                                                            </div>
+                                                            <div class="product-line-info product-price">
+                                                                <span class="value">£20.00</span>
+                                                            </div>
+                                                            <div class="product-line-info">
+                                                                <span class="label-atrr">Size:</span>
+                                                                <span class="value">S</span>
+                                                            </div>
+                                                            <div class="product-line-info">
+                                                                <span class="label-atrr">Color:</span>
+                                                                <span class="value">Blue</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
+                                                            <div class="row">
+                                                                <div class="col-md-5 col qty">
+                                                                    <div class="label">Qty:</div>
+                                                                    <div class="quantity">
+                                                                        <input type="text" name="qty" value="1" class="input-group form-control">
 
-                        <!-- breadcrumb -->
-                        <nav class="breadcrumb-bg">
-                            <div class="container no-index">
-                                <div class="breadcrumb">
-                                    <ol>
-                                        <li>
-                                            <a href="#">
-                                                <span>Home</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Living Room</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <span>Sofa</span>
-                                            </a>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </nav>
-                        <div class="container">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="sidebar-3 sidebar-collection col-lg-3 col-md-3 col-sm-4">
-
-                                        <!-- category -->
-                                        <div class="sidebar-block">
-                                            <div class="title-block">Categories</div>
-                                            <div class="block-content">
-                                                <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapse-icons collapsed" data-toggle="collapse" data-target="#livingroom" aria-expanded="false" role="status">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                    <a class="cateItem" href="#">Living Room</a>
-                                                    <div class="subCategory collapse" id="livingroom" aria-expanded="true" role="status">
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">Side Table</a>
-                                                            <div class="subCategory collapse" id="subCategory-fruits" aria-expanded="true" role="status">
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">Side Table</a>
+                                                                        <span class="input-group-btn-vertical">
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                                                                +
+                                                                            </button>
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                                                                -
+                                                                            </button>
+                                                                        </span>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">FIREPLACE</a>
+                                                                <div class="col-md-5 col price">
+                                                                    <div class="label">Total:</div>
+                                                                    <div class="product-price total">
+                                                                        £20.00
+                                                                    </div>
                                                                 </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">FIREPLACE</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">floor lamp</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">ottoman</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">armchair</a>
-                                                                </div>
-                                                                <div class="cateTitle">
-                                                                    <a href="#" class="cateItem">cushion</a>
+                                                                <div class="col-md-2 col text-xs-right align-self-end">
+                                                                    <div class="cart-line-product-actions ">
+                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
+                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">FIREPLACE</a>
+                                                    </div>
+                                                </li>
+                                                <li class="cart-item">
+                                                    <div class="product-line-grid row justify-content-between">
+                                                        <!--  product left content: image-->
+                                                        <div class="product-line-grid-left col-md-2">
+                                                            <span class="product-image media-middle">
+                                                                <a href="product-detail.html">
+                                                                    <img class="img-fluid" src="img/product/2.jpg" alt="Organic Strawberry Fruits">
+                                                                </a>
+                                                            </span>
                                                         </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">FIREPLACE</a>
+                                                        <div class="product-line-grid-body col-md-6">
+                                                            <div class="product-line-info">
+                                                                <a class="label" href="product-detail.html" data-id_customization="0">
+                                                                    Etiam Congue Nisl Nec</a>
+                                                            </div>
+                                                            <div class="product-line-info product-price">
+                                                                <span class="value">£30.00</span>
+                                                            </div>
+                                                            <div class="product-line-info">
+                                                                <span class="label-atrr">Size:</span>
+                                                                <span class="value">S</span>
+                                                            </div>
+                                                            <div class="product-line-info">
+                                                                <span class="label-atrr">Color:</span>
+                                                                <span class="value">Blue</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">floor lamp</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">ottoman</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">armchair</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">cushion</a>
+                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
+                                                            <div class="row">
+                                                                <div class="col-md-5 qty col">
+                                                                    <div class="label">Qty:</div>
+                                                                    <div class="quantity">
+                                                                        <input type="text" name="qty" value="2" class="input-group form-control">
+
+                                                                        <span class="input-group-btn-vertical">
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                                                                +
+                                                                            </button>
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                                                                -
+                                                                            </button>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5 price col">
+                                                                    <div class="label">Total:</div>
+                                                                    <div class="product-price total">
+                                                                        £60.00
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2 text-xs-right align-self-end col">
+                                                                    <div class="cart-line-product-actions ">
+                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
+                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#bathroom" aria-expanded="false" role="status">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                    <a class="cateItem" href="#">Bathroom</a>
-                                                    <div class="subCategory collapse" id="bathroom" aria-expanded="false" role="status">
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">TOMATO</a>
+                                                </li>
+                                                <li class="cart-item">
+                                                    <div class="product-line-grid row justify-content-between">
+                                                        <!--  product left content: image-->
+                                                        <div class="product-line-grid-left col-md-2">
+                                                            <span class="product-image media-middle">
+                                                                <a href="product-detail.html">
+                                                                    <img class="img-fluid" src="img/product/1.jpg" alt="Organic Strawberry Fruits">
+                                                                </a>
+                                                            </span>
                                                         </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">BROCCOLI</a>
+                                                        <div class="product-line-grid-body col-md-6">
+                                                            <div class="product-line-info">
+                                                                <a class="label" href="product-detail.html" data-id_customization="0">Nulla Et Justo Non Augue</a>
+                                                            </div>
+                                                            <div class="product-line-info product-price">
+                                                                <span class="value">£40.00</span>
+                                                            </div>
+                                                            <div class="product-line-info">
+                                                                <span class="label-atrr">Size:</span>
+                                                                <span class="value">S</span>
+                                                            </div>
+                                                            <div class="product-line-info">
+                                                                <span class="label-atrr">Color:</span>
+                                                                <span class="value">Blue</span>
+                                                            </div>
                                                         </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">CABBAGE</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">CUCUMBER</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">EGGPLANT</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#diningroom" aria-expanded="false" role="status">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                    <a class="cateItem" href="#">Dining Rooom</a>
-                                                    <div class="subCategory collapse" id="diningroom" aria-expanded="true" role="status">
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">DRY BREAD</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">BREAD SLICES</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">FRENCH BREAD</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">BLACK BREAD</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#bedroom" aria-expanded="false" role="status">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                    <a class="cateItem" href="#">Bedroom</a>
-                                                    <div class="subCategory collapse" id="bedroom" aria-expanded="true" role="status">
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">ORANGE JUICES</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">TOMATO JUICES</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">APPLE JUICES</a>
+                                                        <div class="product-line-grid-right text-center product-line-actions col-md-4">
+                                                            <div class="row">
+                                                                <div class="col-md-5 col qty">
+                                                                    <div class="label">Qty:</div>
+                                                                    <div class="quantity">
+                                                                        <input type="text" name="qty" value="3" class="input-group form-control">
+
+                                                                        <span class="input-group-btn-vertical">
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-up" type="button">
+                                                                                +
+                                                                            </button>
+                                                                            <button class="btn btn-touchspin js-touchspin bootstrap-touchspin-down" type="button">
+                                                                                -
+                                                                            </button>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-5 col price">
+                                                                    <div class="label">Total:</div>
+                                                                    <div class="product-price total">
+                                                                        £120.00
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2 col text-xs-right align-self-end">
+                                                                    <div class="cart-line-product-actions ">
+                                                                        <a class="remove-from-cart" rel="nofollow" href="#" data-link-action="delete-from-cart" data-id-product="1">
+                                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="cateTitle hasSubCategory open level1">
-                                                    <span class="arrow collapsed collapse-icons" data-toggle="collapse" data-target="#kitchen" aria-expanded="false" role="status">
-                                                        <i class="zmdi zmdi-minus"></i>
-                                                        <i class="zmdi zmdi-plus"></i>
-                                                    </span>
-                                                    <a class="cateItem" href="#">Kitchen</a>
-                                                    <div class="subCategory collapse" id="kitchen" aria-expanded="true" role="status">
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">ORANGE JUICES</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">TOMATO JUICES</a>
-                                                        </div>
-                                                        <div class="cateTitle">
-                                                            <a href="#" class="cateItem">APPLE JUICES</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                                </li>
+                                            </ul>
                                         </div>
-
-
-                                        <!-- recent posts -->
-                                        <div class="sidebar-block">
-                                            <div class="title-block">Recent Posts</div>
-                                            <div class="post-item-content">
+                                    </div>
+                                    <a href="product-checkout.html" class="continue btn btn-primary pull-xs-right">
+                                        Continue
+                                    </a>
+                                </div>
+                                <div class="cart-grid-right col-xs-12 col-lg-3">
+                                    <div class="cart-summary">
+                                        <div class="cart-detailed-totals">
+                                            <div class="cart-summary-products">
+                                                <div class="summary-label">There are 3 item in your cart</div>
+                                            </div>
+                                            <div class="cart-summary-line" id="cart-subtotal-products">
+                                                <span class="label js-subtotal">
+                                                    Total products:
+                                                </span>
+                                                <span class="value">£200.00</span>
+                                            </div>
+                                            <div class="cart-summary-line" id="cart-subtotal-shipping">
+                                                <span class="label">
+                                                    Total Shipping:
+                                                </span>
+                                                <span class="value">Free</span>
                                                 <div>
-                                                    <div class="late-item first-child">
-                                                        <a href="detail.html">
-                                                            <p class="content-title">Lorem ipsum dolor sit amet</p>
-                                                        </a>
-                                                        <span>
-                                                            <i class="zmdi zmdi-comments"></i>13 comment</span>
-                                                        <span>
-                                                            <i class="zmdi zmdi-calendar-note"></i>20 APRIl 2017
-                                                        </span>
-                                                        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                            nonummy...
-                                                        </p>
-                                                        <p class="remove">
-                                                            <a href="detail.html">READ MORE</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <div class="late-item">
-                                                        <a href="detail.html">
-                                                            <p class="content-title">Lorem ipsum dolor sit amet</p>
-                                                        </a>
-                                                        <span>
-                                                            <i class="zmdi zmdi-comments"></i>13 comment</span>
-                                                        <span>
-                                                            <i class="zmdi zmdi-calendar-note"></i>20 APRIl 2017
-                                                        </span>
-                                                        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                                            nonummy...
-                                                        </p>
-                                                        <p class="remove">
-                                                            <a href="detail.html">READ MORE</a>
-                                                        </p>
-                                                    </div>
+                                                    <small class="value"></small>
                                                 </div>
                                             </div>
-                                        </div>
-
-                                        <!-- product tag -->
-                                        <div class="sidebar-block product-tags">
-                                            <div class="title-block">
-                                                Blog Tags
-                                            </div>
-                                            <div class="block-content">
-                                                <ul class="listSidebarBlog list-unstyled">
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Hot Trend">Hot Trend</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Jewelry">Jewelry</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="man.html" title="Show products matching tag Man">Man</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Party">Party</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag SamSung">SamSung</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shirt Dresses">Shirt Dresses</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Shoes">Shoes</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Summer">Summer</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Sweaters">Sweaters</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Winter">Winter</a>
-                                                    </li>
-
-                                                    <li>
-                                                        <a href="#" title="Show products matching tag Woman">Woman</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-
-                                        <!-- advertising -->
-                                        <div class="sidebar-block group-image-special">
-                                            <div class="effect">
-                                                <a href="#">
-                                                    <img class="img-fluid" src="img/blog/advertising.jpg" alt="banner-2" title="banner-2">
-                                                </a>
+                                            <div class="cart-summary-line cart-total">
+                                                <span class="label">Total:</span>
+                                                <span class="value">£200.00 (tax incl.)</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-8 col-lg-9 col-md-9 flex-xs-first main-blogs">
-                                        <h3>Rutrum Nonvopxe Sapiente Delectus Aut Bonbde</h3>
-                                        <div class="hover-after">
-                                            <img src="img/blog/detail.jpg" alt="img" class="img-fluid">
-                                        </div>
-                                        <div class="late-item">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Ut enim adminim veniam Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur ut iaculis arcu. Proin tincidunt, ipsum nec vehicula euismod,
-                                                neque nibh pretium lorem, at ornare risus sem et risus. Curabitur pulvinar
-                                                dui viverra libero lobortis in dictum velit luctus. Donec imperdiet tincidunt
-                                                interdum
-                                            </p>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Ut enim adminim veniam libero lobortis in dictum velit luctus. Donec imperdiet
-                                                tincidunt interdum.
-                                            </p>
-                                            <p class="content-title">Here, we bring you a look-see:</p>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                Ut enim adminim veniam Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Curabitur ut iaculis arcu. Proin tincidunt, ipsum nec vehicula euismod,
-                                                neque nibh pretium lorem, at ornare risus sem et risus.
-                                            </p>
-                                            <div class="spacing-10 group-image-special">
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-6 p-left">
-                                                            <div class="effect">
-                                                                <img class="img-fluid" src="img/blog/3.jpg" alt="banner-1" title="banner-1">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 p-right">
-                                                            <div class="effect">
-                                                                <img class="img-fluid" src="img/blog/2.jpg" alt="banner-2" title="banner-2">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                    <div id="block-reassurance">
+                                        <ul>
+                                            <li>
+                                                <div class="block-reassurance-item">
+                                                    <img src="img/product/check1.png" alt="Security policy (edit with Customer reassurance module)">
+                                                    <span>Security policy (edit with Customer reassurance module)</span>
                                                 </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt
-                                                ut labore et dolore magna aliqua. Ut enim adminim veniam Lorem ipsum dolor
-                                                sit amet, consectetur adipiscing elit. Curabitur ut iaculis arcu. Proin tincidunt,
-                                                ipsum nec vehicula euismod, neque nibh pretium lorem, at ornare risus sem
-                                                et risus.
-                                            </p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt
-                                                ut labore et dolore magna aliqua. Ut enim adminim veniam. Lorem ipsum dolor
-                                                sit amet, consectetur adipiscing elit. Curabitur ut iaculis arcu. Proin tincidunt,
-                                                ipsum nec vehicula euismod neque
-                                            </p>
-                                            <div class="border-detail">
-                                                <p class="post-info float-left">
-                                                    <span>3 minitunes ago</span>
-                                                    <span>113 Comments</span>
-                                                    <span>TIVATHEME</span>
-                                                </p>
-                                                <div class="btn-group">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-share"></i>
-                                                        <span>Share</span>
-                                                    </a>
-                                                    <a href="#" class="email">
-                                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                                        <span>SEN TO A FRIEND</span>
-                                                    </a>
-                                                    <a href="#" class="print">
-                                                        <i class="zmdi zmdi-print"></i>
-                                                        <span>Print</span>
-                                                    </a>
+                                            </li>
+                                            <li>
+                                                <div class="block-reassurance-item">
+                                                    <img src="img/product/check2.png" alt="Delivery policy (edit with Customer reassurance module)">
+                                                    <span>Delivery policy (edit with Customer reassurance module)</span>
                                                 </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="admin">
-                                            <img src="img/blog/user.jpg" alt="img" class="float-left right">
-                                            <div class="info">
-                                                <p>
-                                                    <a href="#">
-                                                        <span class="content-title">
-                                                            John doe
-                                                        </span>
-                                                    </a>
-                                                    <span>Administrator, Web Designer</span>
-                                                </p>
-                                                <p class="descript">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt. ut labore et dolore magna aliqua.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="related">
-                                            <h2 class="title-block">Related News</h2>
-                                            <div class="main-blogs">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="detail.html">
-                                                                <img src="img/blog/7.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="detail.html">Lorem ipsum dolor sit amet</a>
-                                                            </p>
-                                                            <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin,
-                                                                lorem quis bibendum auctor.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="detail.html">
-                                                                <img src="img/blog/8.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="detail.html">Lorem ipsum dolor sit amet</a>
-                                                            </p>
-                                                            <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin,
-                                                                lorem quis bibendum auctor.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="hover-after">
-                                                            <a href="detail.html">
-                                                                <img src="img/blog/9.jpg" alt="img" class="img-fluid">
-                                                            </a>
-                                                        </div>
-                                                        <div class="late-item">
-                                                            <p class="content-title">
-                                                                <a href="detail.html">Lorem ipsum dolor sit amet</a>
-                                                            </p>
-                                                            <p class="description">Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin,
-                                                                lorem quis bibendum auctor .
-                                                            </p>
-                                                        </div>
-                                                    </div>
+                                            </li>
+                                            <li>
+                                                <div class="block-reassurance-item">
+                                                    <img src="img/product/check3.png" alt="Return policy (edit with Customer reassurance module)">
+                                                    <span>Return policy (edit with Customer reassurance module)</span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="reply late-item">
-                                            <div class="blog-comment" id="blog-comment">
-                                                <h2 class="title-block">Comments</h2>
-                                                <img src="img/blog/user1.jpg" alt="img" class="float-left right">
-                                            </div>
-                                            <div class="comment-content">
-                                                <p class="user-title">
-                                                    <a href="#">JOHN DOE</a>
-                                                    <span class="time">Posted on Mar 17, 2017 at 6:57am /
-                                                        <a href="#">repost</a> /
-                                                        <span class="green">
-                                                            <a href="#">Reply</a>
-                                                        </span>
-                                                    </span>
-                                                </p>
-                                                <p class="content-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor
-                                                    incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam.
-                                                </p>
-                                            </div>
-                                            <div class="blog-comment margin-right-comment">
-                                                <div class="avatar">
-                                                    <img src="img/blog/user2.jpg" alt="img" class="float-left">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p class="user-title">
-                                                        <a href="#">JOHN DOE</a>
-                                                        <span class="time">Posted on Mar 17, 2017 at 6:57am /
-                                                            <a href="#">repost</a> /
-                                                            <span class="green">
-                                                                <a href="#">Reply</a>
-                                                            </span>
-                                                        </span>
-                                                    </p>
-                                                    <p class="content-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim
-                                                        veniam.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                            <div class="blog-comment">
-                                                <div class="avatar">
-                                                    <img src="img/blog/user1.jpg" alt="img" class="float-left right">
-                                                </div>
-                                                <div class="comment-content">
-                                                    <p class="user-title">
-                                                        <a href="#">JOHN DOE</a>
-                                                        <span class="time">Posted on Mar 17, 2017 at 6:57am /
-                                                            <a href="#">repost</a> /
-                                                            <span class="green">
-                                                                <a href="#">Reply</a>
-                                                            </span>
-                                                        </span>
-                                                    </p>
-                                                    <p class="content-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod
-                                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim
-                                                        veniam.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="submit-comment" id="respond">
-                                            <h2 class="title-block">Submit comment</h2>
-                                            <div id="commentInput">
-                                                <form action="#" method="post" id="commentform">
-                                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                                                    <div class="row">
-                                                        <div class="form-group col col-sm-12 col-md-4 ">
-                                                            <input type="text" class="inputName form-control" name="name" placeholder="Your Name *">
-                                                        </div>
-                                                        <div class="form-group col col-sm-12  col-md-4">
-                                                            <input type="text" class="inputMail form-control" name="mail" placeholder="Your E-mail *">
-                                                        </div>
-                                                        <div class="form-group col col-sm-12  col-md-4">
-                                                            <input type="text" class="form-control" name="website" placeholder="Your Website">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="form-group col col-md-12">
-                                                            <textarea tabindex="4" class="inputContent form-control grey" rows="10" name="comment" placeholder="Your Message"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="submit">
-                                                        <input type="submit" name="addComment" id="submitComment" class="btn btn-default" value="Send Message">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </div>
                 </div>
             </div>
@@ -1653,7 +1407,7 @@
                                             <a href="home2.html" title="Home Page 2">Home Page 2</a>
                                         </li>
                                         <li class="item">
-                                            <a href="home3.html" title="Home Page 3">Home Page 3</a>
+                                            <a href="home.html" title="Home Page 3">Home Page 3</a>
                                         </li>
                                         <li class="item">
                                             <a href="home4.html" title="Home Page 4">Home Page 4</a>
@@ -1675,7 +1429,7 @@
                                 <div class="subCategory collapse" id="blog" aria-expanded="true" role="status">
                                     <ul>
                                         <li class="item">
-                                            <a href="blog-list-sidebar-left.html" title="Blog List (Sidebar Left)">Blog List (Sidebar Left)</a>
+                                            <a href="blog-list.html" title="Blog List (Sidebar Left)">Blog List (Sidebar Left)</a>
                                         </li>
                                         <li class="item">
                                             <a href="blog-list-sidebar-left2.html" title="Blog List (Sidebar Left) 2">Blog List (Sidebar Left) 2</a>
@@ -1690,7 +1444,7 @@
                                             <a href="blog-grid-no-sidebar.html" title="Blog Grid (No Sidebar)">Blog Grid (No Sidebar)</a>
                                         </li>
                                         <li class="item">
-                                            <a href="detail.html" title="Blog Detail">Blog Detail</a>
+                                            <a href="blog-detail.html" title="Blog Detail">Blog Detail</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1712,7 +1466,7 @@
                                                         <div class="menu-content">
                                                             <ul class="col">
                                                                 <li>
-                                                                    <a href="product-grid-sidebar-left.html">Product Grid (Sidebar Left)</a>
+                                                                    <a href="product-list.html">Product Grid (Sidebar Left)</a>
                                                                 </li>
                                                                 <li>
                                                                     <a href="product-grid-sidebar-right.html">Product Grid (Sidebar Right)</a>
@@ -1787,11 +1541,12 @@
     <script src="libs/slider-range/js/jquery.dependClass-0.1.js"></script>
     <script src="libs/slider-range/js/draggable-0.1.js"></script>
     <script src="libs/slider-range/js/jquery.slider.js"></script>
+    <script src="libs/slick-slider/js/slick.min.js"></script>
 
     <!-- Template JS -->
     <script src="js/theme.js"></script>
 </body>
 
 
-<!-- blog-detail10:54-->
+<!-- product-cart07:12-->
 </html>
