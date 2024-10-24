@@ -1,0 +1,96 @@
+{% load static %}
+{% load i18n %}
+<div class="sidebar-3 sidebar-collection col-lg-3 col-md-4 col-sm-4">
+
+                                        <!-- best seller -->
+                                        <div class="sidebar-block">
+                                            <div class="title-block">{% trans 'Catalog' %}</div>
+                                        
+                                            <!-- Category Filter -->
+                                            <div class="new-item-content">
+                                                <h3 class="title-product">{% trans 'Categories' %}</h3>
+                                                <ul class="scroll-product">
+                                                    {% for category in categories %}
+                                                    <li>
+                                                        <label class="check">
+                                                            <input type="checkbox" name="category" value="{{ category.id }}">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                        <a href="#">
+                                                            <b>{{ category.name }}</b>
+                                                            <span class="quantity"></span>
+                                                        </a>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+
+                                        <!-- Manufacturer Filter -->
+                                        <div class="new-item-content">
+                                            <h3 class="title-product">{% trans 'Manufacturers' %}</h3>
+                                            <ul class="scroll-product">
+                                                {% for brand in brands %}
+                                                <li>
+                                                    <label class="check">
+                                                        <input type="checkbox" name="manufacturer" value="{{ brand.id }}">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                    <a href="#">
+                                                        <b>{{ brand.name }}</b>
+                                                        <span class="quantity"></span>
+                                                    </a>
+                                                </li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+                                        <!-- Price Filter -->
+                                        <div class="tiva-filter-price new-item-content sidebar-block">
+                                            <h3 class="title-product">{% trans 'By Price' %}</h3>
+                                            <form method="get" action=".">
+                                                <div class="layout-slider">
+                                                    <input id="price-filter" name="price" value="0;100" />
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">{% trans 'Filter' %}</button>
+                                            </form>
+                                        </div>
+
+                                        <!-- Color Filter -->
+                                        <div class="sidebar-block by-color">
+                                            <h3 class="title-product">{% trans 'By Color' %}</h3>
+                                            <div>
+                                                {% for color in colors %}
+                                                <span class="left">
+                                                    <label class="color-item{{ forloop.counter }}"></label>
+                                                    <a href="#">
+                                                        <span>{{ color.name }}
+                                                            <span>(2)</span>
+                                                        </span>
+                                                    </a>
+                                                </span>
+                                                {% if forloop.counter|divisibleby:2 %}
+                                                </div><div>
+                                                {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                        <!-- product tag -->
+                                        <div class="sidebar-block product-tags">
+                                            <div class="title-block">
+                                                {% trans 'Product tags' %}
+                                            </div>
+                                            <div class="block-content">
+                                                <ul class="listSidebarBlog list-unstyled">
+                                                    {% for tag in tags %}
+                                                    <li>
+                                                        <a href="#" title="Show products matching tag Hot Trend">
+                                                            {{ tag.name }}</a>
+                                                    </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
