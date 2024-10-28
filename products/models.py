@@ -1,95 +1,97 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+from common.models import BaseModel
 
 
-class CategoryModel(models.Model):
-    title = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = "category"
-        verbose_name_plural = "categories"
-
-
-class CompanyModel(models.Model):
-    title = models.CharField(max_length=255)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+class CategoryModel(BaseModel):
+    name = models.CharField(max_length=128, verbose_name=_("Category name"), unique=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
     class Meta:
-        verbose_name = "company"
-        verbose_name_plural = "companies"
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
 
 
-class ColorModel(models.Model):
-    title = models.CharField(max_length=255)
-    code = models.CharField(max_length=255)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+class TagModel(BaseModel):
+    name = models.CharField(max_length=128, verbose_name=_("Tag name"), unique=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
     class Meta:
-        verbose_name = "color"
-        verbose_name_plural = "colors"
+        verbose_name = _("Tag")
+        verbose_name_plural = _("Tags")
 
 
-class TagModel(models.Model):
-    title = models.CharField(max_length=255)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+class BrandModel(BaseModel):
+    name = models.CharField(max_length=128, verbose_name=_("Brand name"), unique=True)
 
     def __str__(self):
-        return self.title
+        return self.name
 
     class Meta:
-        verbose_name = "tag"
-        verbose_name_plural = "tags"
+        verbose_name = _("Brand")
+        verbose_name_plural = _("Brands")
 
 
-class ProductModel(models.Model):
-    photo_1 = models.ImageField(upload_to="products", null=True, blank=True)
-    photo_2 = models.ImageField(upload_to="products", null=True, blank=True)
-    title = models.CharField(max_length=255)
-    price = models.FloatField()
-    short_description = models.CharField(max_length=255)
+class ColorModel(BaseModel):
+    name = models.CharField(max_length=128, verbose_name=_("Color name"))
+    code = models.CharField(max_length=128, verbose_name=_("Color code"), unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Color")
+        verbose_name_plural = _("Colors")
+
+
+class SizeModel(BaseModel):
+    name = models.CharField(max_length=128, verbose_name=_("Size name"), unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = _("Size")
+        verbose_name_plural = _("Sizes")
+
+
+class ProductModel(BaseModel):
+    image1 = models.ImageField(upload_to='products/')
+    image2 = models.ImageField(upload_to='products/')
+    name = models.CharField(max_length=128, verbose_name=_("Product name"))
+    short_description = models.TextField()
     long_description = models.TextField()
-    in_stock = models.BooleanField(default=True)
+    is_stock = models.BooleanField(verbose_name=_("Is stock"), default=True)
+    sku = models.CharField(max_length=10, unique=True)
+    quantity = models.PositiveIntegerField(default=1)
+    discount = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(100)])
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    real_price = models.DecimalField(max_digits=10, decimal_places=2)
 
-    categories = models.ManyToManyField(CategoryModel, related_name="products")
-    tags = models.ManyToManyField(TagModel, related_name="products")
-    colors = models.ManyToManyField(ColorModel, related_name="products")
-    companies = models.ManyToManyField(CompanyModel, related_name="products")
+    categories = models.ManyToManyField(CategoryModel, related_name='products')
+    tags = models.ManyToManyField(TagModel, related_name='products')
+    sizes = models.ManyToManyField(SizeModel, related_name='products')
+    colors = models.ManyToManyField(ColorModel, related_name='products')
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    brands = models.ForeignKey(BrandModel, related_name='products', on_delete=models.CASCADE)
+
+    def is_discount(self):
+        return True if self.discount != 0 else False
 
     def __str__(self):
-        return self.title
+        return self.name
 
     class Meta:
-        verbose_name = "product"
-        verbose_name_plural = "products"
+        verbose_name = _("Product")
+        verbose_name_plural = _("Products")
 
 
 class ProductImageModel(models.Model):
-    product = models.ForeignKey(ProductModel, on_delete=models.CASCADE, related_name="photos")
-    image = models.ImageField(upload_to="products")
-
-    def __str__(self):
-        return self.product.title
-
-    class Meta:
-        verbose_name = "product image"
-        verbose_name_plural = "product images"
-
+    product = models.ForeignKey(ProductModel, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='products')

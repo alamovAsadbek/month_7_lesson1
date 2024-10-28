@@ -2,13 +2,13 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-^7^pf(b7$#^9#pcnl$^g+c#aq@j&@3hzw9_d7z4pion0w-t97^'
-
+SECRET_KEY = 'django-insecure-7q6pkjbhsr-ih!wpx2eb5l1=o!d@_v$085r#=+&c^*%sozqlui'
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -16,13 +16,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'common',
     'pages',
     'products',
+    'blogs',
+    'accounts',
+    'orders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -72,19 +77,38 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+LANGUAGES = (
+    ('en', 'English'),
+    ('uz', 'Uzbek'),
+    ('ru', 'Russian'),
+)
+
+LOCALE_PATHS = (BASE_DIR / 'locale',)
+
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = BASE_DIR / 'assets',
+STATIC_ROOT = 'static/'
+STATICFILES_DIRS = (BASE_DIR / 'assets/',)
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sanjarbekwork@gmail.com'
+EMAIL_HOST_PASSWORD = 'wfuf vgww ikhe msam'
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+AUTH_USER_MODEL = 'accounts.UserModel'

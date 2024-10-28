@@ -1,32 +1,44 @@
 from django.contrib import admin
+
+from products.forms import ColorPickerForm
 from products.models import *
+
 
 @admin.register(CategoryModel)
 class CategoryModelAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at']
-    list_filter = ['created_at', 'updated_at']
-    search_fields = ['title']
-
-
-@admin.register(ColorModel)
-class ColorModelAdmin(admin.ModelAdmin):
-    list_display = ['title', 'code', 'created_at']
-    list_filter = ['created_at', 'updated_at']
-    search_fields = ['title', 'code']
+    list_display = ('name',)
+    search_fields = ('name',)
+    list_filter = ('created_at',)
 
 
 @admin.register(TagModel)
 class TagModelAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at']
-    list_filter = ['created_at', 'updated_at']
-    search_fields = ['title']
+    list_display = ('name',)
+    search_fields = ('name',)
+    list_filter = ('created_at',)
 
 
-@admin.register(CompanyModel)
-class CompanyModelAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_at']
-    list_filter = ['created_at', 'updated_at']
-    search_fields = ['title']
+@admin.register(SizeModel)
+class SizeModelAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    list_filter = ('created_at',)
+
+
+@admin.register(BrandModel)
+class BrandModelAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    list_filter = ('created_at',)
+
+
+@admin.register(ColorModel)
+class ColorModelAdmin(admin.ModelAdmin):
+    list_display = ('name', 'code',)
+    search_fields = ('name', 'code',)
+    list_filter = ('created_at',)
+    form = ColorPickerForm
+
 
 class ProductImageModelAdmin(admin.StackedInline):
     model = ProductImageModel
@@ -34,14 +46,8 @@ class ProductImageModelAdmin(admin.StackedInline):
 
 @admin.register(ProductModel)
 class ProductModelAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'created_at']
-    list_filter = ['created_at', 'updated_at']
-    search_fields = ['title', 'short_description']
+    list_display = ('name', 'price',)
+    search_fields = ('name', 'short_description',)
+    list_filter = ('created_at',)
     inlines = [ProductImageModelAdmin]
-
-
-
-
-
-
-
+    readonly_fields = ('real_price',)
